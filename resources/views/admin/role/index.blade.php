@@ -5,11 +5,11 @@
         <div class="col-6">
             <div class="card card-primary">
                 <div class="card-header">
-                    <h3 class="card-title">Quick Example</h3>
+                    <h3 class="card-title">Role Example</h3>
                 </div>
                 <!-- /.card-header -->
                 <!-- form start -->
-                <form action="# " method="post" enctype="multipart/form-data">
+                <form action="{{route('store')}}" method="post" enctype="multipart/form-data">
                     @csrf
                     <div class="card-body">
 
@@ -17,28 +17,18 @@
                             <label for="name">Role</label>
                             <input type="text" class="form-control" name="name" id="name" placeholder="Enter role">
                         </div>
-                        <div class="form-group">
-                            <label for="cars">Permission</label>
-                            @if( count($roles) > 0)
-                                <select id="cars" class="form-control">
-                            @foreach ($roles as $role)
-                            <option value="volvo">
-                          @php
-                              $datas = json_decode($role->keywords);
-                          @endphp
-                            @foreach ($datas  as $data)
-                            {{$data}}
-
+                        @foreach($roles as $role)
+                            <div class="form-group">
+                                <label for="name">{{$role->attribute}}</label>
+                            </div>
+                            @foreach(json_decode($role->keywords) as $key => $per)
+{{--                                {{dd($per)}}--}}
+                                <div class="form-check">
+                                    <input type="checkbox" class="form-check-input" value="{{$per}}"  name="keywords[]" id="permission">
+                                    <label class="form-check-label" for="exampleCheck1">{{$key}}</label>
+                                </div>
                             @endforeach
-                            </option>
-                            @endforeach
-                                </select>
-                            @else
-                                @endif
-
-
-
-                        </div>
+                        @endforeach
 
                     </div>
                     <!-- /.card-body -->

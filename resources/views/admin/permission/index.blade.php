@@ -5,11 +5,11 @@
     <div class="col-6">
         <div class="card card-primary">
             <div class="card-header">
-                <h3 class="card-title">Quick Example</h3>
+                <h3 class="card-title">Permission Example</h3>
             </div>
             <!-- /.card-header -->
             <!-- form start -->
-            <form action="{{route('store')}} " method="post" enctype="multipart/form-data">
+            <form action="{{route('permissionStore')}} " method="post" enctype="multipart/form-data">
                 @csrf
                 <div class="card-body">
 

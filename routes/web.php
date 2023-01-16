@@ -6,6 +6,7 @@ use App\Http\Controllers\ProductController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PermissionController;
 use App\Http\Controllers\RoleController;
+use App\Http\Controllers\UserController;
 
 /*
 |--------------------------------------------------------------------------
@@ -41,8 +42,12 @@ Route::middleware('logoutCheck')->group(function (){
     Route::post('category-update', [CategoryController::class, 'update'])->name('category.update');
     // =============permission=========================
     Route::get('permission', [PermissionController::class, 'permissionIndex'])->name('permission');
-    Route::post('store', [PermissionController::class, 'permissionStore'])->name('store');
+    Route::post('permissionStore', [PermissionController::class, 'permissionStore'])->name('permissionStore');
 
 //    ===================role==================
     Route::get('role', [RoleController::class, 'roleIndex'])->name('roleIndex');
+    Route::post('store', [RoleController::class, 'roleStore'])->name('store');
+//    =====================user================================
+    Route::get('user', [UserController::class, 'userIndex'])->name('userIndex');
+    Route::post('user-store', [UserController::class, 'userStore'])->name('userStore');
 });

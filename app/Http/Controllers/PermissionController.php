@@ -24,22 +24,22 @@ return view('admin.permission.index');
 //            dd($request->keywords[$i]);
 
           if($request->keywords[$i] == 'create'){
-             $create = $request->attribute.'_'.$request->keywords[$i];
+              $data['create'] = $request->attribute.'_'.$request->keywords[$i];
          } else if($request->keywords[$i] == 'read'){
-             $read = $request->attribute.'_'.$request->keywords[$i];
+              $data['read'] = $request->attribute.'_'.$request->keywords[$i];
          }else if($request->keywords[$i] == 'delete'){
-              $delete = $request->attribute.'_'.$request->keywords[$i];
+              $data['delete'] = $request->attribute.'_'.$request->keywords[$i];
           }else if($request->keywords[$i] == 'update'){
-              $update = $request->attribute.'_'.$request->keywords[$i];
+              $data['update'] = $request->attribute.'_'.$request->keywords[$i];
           }
         }
 
-        $data = [
-            'read' => $read,
-            'create' => $create,
-            'delete' => $delete,
-            'update' => $update,
-        ];
+//        $data = [
+//            'read' => $read,
+//            'create' => $create,
+//            'delete' => $delete,
+//            'update' => $update,
+//        ];
         $permission->keywords = json_encode($data);
         $permission->save();
         return Redirect()->back();

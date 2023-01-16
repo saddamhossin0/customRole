@@ -10,7 +10,16 @@ class RoleController extends Controller
 {
 public  function  roleIndex(){
     $roles = Permission::all();
-//    dd($role);
+//    dd($roles);
     return view('admin.role.index',compact('roles'));
+}
+
+public  function  roleStore(Request $request){
+//    dd($request->all());
+    $roleData = new  Role();
+    $roleData->name = $request->name;
+    $roleData->permissions = $request->keywords ? $request->keywords : [];
+    $roleData->save();
+    return Redirect()->back();
 }
 }

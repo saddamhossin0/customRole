@@ -37,6 +37,10 @@
                         class="bx bxs-dashboard"></i>
                     <span>{{ __('Role') }}</span></a>
             </li>
+            <li class="@yield('dashboard')"><a class="nav-link" href="{{route('userIndex')}}"><i
+                        class="bx bxs-dashboard"></i>
+                    <span>{{ __('User') }}</span></a>
+            </li>
         </ul>
     </aside>
 </div>

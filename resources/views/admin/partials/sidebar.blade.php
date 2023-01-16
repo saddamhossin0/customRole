@@ -32,7 +32,11 @@
             <li class="@yield('dashboard')"><a class="nav-link" href="{{route('permission')}}"><i
                 class="bx bxs-dashboard"></i>
         <span>{{ __('Permission') }}</span></a>
-</li>
+            </li>
+            <li class="@yield('dashboard')"><a class="nav-link" href="{{route('roleIndex')}}"><i
+                        class="bx bxs-dashboard"></i>
+                    <span>{{ __('Role') }}</span></a>
+            </li>
         </ul>
     </aside>
 </div>

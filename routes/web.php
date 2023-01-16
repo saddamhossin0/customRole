@@ -3,8 +3,9 @@
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\ProductController;
-use App\Http\Controllers\PermissionController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\PermissionController;
+use App\Http\Controllers\RoleController;
 
 /*
 |--------------------------------------------------------------------------
@@ -41,4 +42,7 @@ Route::middleware('logoutCheck')->group(function (){
     // =============permission=========================
     Route::get('permission', [PermissionController::class, 'permissionIndex'])->name('permission');
     Route::post('store', [PermissionController::class, 'permissionStore'])->name('store');
+
+//    ===================role==================
+    Route::get('role', [RoleController::class, 'roleIndex'])->name('roleIndex');
 });
